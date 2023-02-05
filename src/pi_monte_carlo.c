@@ -19,11 +19,13 @@
 #include <time.h>
 #include <unistd.h>
 
+#include <mpi.h>
+
 #pragma message("GL; HF!")
 
 #ifndef N
 #define N 1000000000 // 1e9
-#endif               // N
+#endif // N
 
 #ifdef M_PIl // Intel compiler doesn't define `M_PIl` macro.
 #define PI M_PIl
@@ -33,21 +35,42 @@
 
 typedef unsigned long long ull;
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
+    int rank, size;
+
+    MPI_Init(&argc, &argv);
+
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+    double tik = MPI_Wtime();
+
     srand(time(NULL));
-    const ull n = argc > 1 ? strtoull(1 [argv], NULL, 10) : N;
+    const ull n = argc > 1 ? strtoull(1[argv], NULL, 10) : N;
 
     ull cnt = 0;
-    for (ull i = 0; i < n; i++)
+    for (ull i = rank; i < n; i += size)
     {
         long double x = 1.l * rand() / RAND_MAX, y = 1.l * rand() / RAND_MAX;
         if (x * x + y * y < 1)
             ++cnt;
     }
 
-    ull sum = cnt;
-    long double pi = 4.l * sum / n;
-    printf("pi\t= %Lf\nAbs err\t= %Lf\n", pi, fabsl(pi - PI));
+    ull sum = 0;
+    MPI_Reduce(&cnt, &sum, 1, MPI_UNSIGNED_LONG_LONG, MPI_SUM, 0, MPI_COMM_WORLD);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+    double tok = MPI_Wtime();
+
+    if (!rank) // rank == 0
+    {
+        long double pi = 4.l * sum / n;
+        printf("pi\t= %Lf\nAbs err\t= %Lf\n", pi, fabsl(pi - PI));
+        fprintf(stderr, "Wall time: %f\n", tok - tik);
+    }
+
+    MPI_Finalize();
     return 0;
 }
