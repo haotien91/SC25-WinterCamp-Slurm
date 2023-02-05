@@ -4,6 +4,8 @@
 2/6. `nevikw39`.
 
 > [_Taiwania 3_ Manual](https://man.twcc.ai/@TWCC-III-manual/H1bEXeGcu)
+>
+> [Slides](https://www.icloud.com/keynote/088QFrkI8tSA7bVogxA6HSLDg#SC24TrainingCamp)
 
 ## Multi Node Manager _Slurm_
 
