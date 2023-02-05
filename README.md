@@ -41,7 +41,7 @@ All jobs should be associated with a **account** with enough **service unit** (S
 
 The most vital resource that we're concerned is the number of CPU cores. Normally, it's enough for us to determine the number of total tasks / MPI ranks / processes. Nonetheless, we could also limit the maximum number of nodes in used or the tasks per node.
 
-$$\mathtt{\$SLURM\_NTASKS}\leq\mathtt{\$SLURM\_NNODES}\times\mathtt {\$SLURM\_NTASKS\_PER\_NODE}$$
+$$\mathtt{\$SLURM\\_NTASKS}\leq\mathtt{\$SLURM\\_NNODES}\times\mathtt{\$SLURM\\_NTASKS\\_PER\\_NODE}$$
 
 Prons and cons of interactive and non-interactive jobs:
 - Flexibility
@@ -155,4 +155,4 @@ Run a [VS Coder server](https://code.visualstudio.com/blogs/2022/07/07/vscode-se
 4. Now we could detach from the `tmux` seesion. Press <kbd>⌃Ctrl</kbd> $+$ <kbd>B</kbd>, then <kbd>D</kbd>.
 5. In your VS Code, update to at least $1.73$ and install the _Remote Tunnels_ extension. Click the left-bottom corner and then connect to the tunnel. You might be required to log into your GitHub account. Voilà!
 
-[^WSLg]: All you have to do is to update Windows and WSL. Here is official[tutorial](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps).
+[^WSLg]: All you have to do is to update Windows and WSL. Here is official [tutorial](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps).
