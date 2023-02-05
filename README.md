@@ -111,7 +111,7 @@ Nowadays, there are some common approaches to caculate the value of $\pi$:
 0. **Monte Carlo** method
    - ![](https://upload.wikimedia.org/wikipedia/commons/8/84/Pi_30K.gif)
    - This figure was adopted from [Wikipedia](https://en.wikipedia.com/wiki/Approximations_of_%CF%80).
-1. **Gregory–Leibniz** series, e.g., $\arctan$ at $1$ would be $1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\dots=\sum_{k=0}^\infty\frac{(-1)^k}{2k+1}$
+1. **Gregory–Leibniz** series, e.g., $\arctan$ at $1$ would be $\displaystyle1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\dots=\sum_{k=0}^\infty\frac{(-1)^k}{2k+1}$
 2. **Integral** of some functions, e.g.,
    - $4\int_0^1\sqrt{1-x^2}dx$
    - $4\int_0^1\frac{1}{1+x^2}dx$
