@@ -21,12 +21,6 @@
 
 #include <mpi.h>
 
-#pragma message("GL; HF!")
-
-#ifndef N
-#define N 1000000000 // 1e9
-#endif // N
-
 #ifdef M_PIl // Intel compiler doesn't define `M_PIl` macro.
 #define PI M_PIl
 #else
@@ -48,10 +42,21 @@ int main(int argc, char* argv[])
     double tik = MPI_Wtime();
 
     srand(time(NULL));
-    const ull n = argc > 1 ? strtoull(1[argv], NULL, 10) : N;
+
+    // Ensure only one additional argument is provided
+    if (argc != 2) {
+        if (rank == 0) {
+            fprintf(stderr, "You can only input one parameter!\n");
+        }
+        MPI_Finalize();
+        return 1;
+    }
+
+    const ull n = strtoull(1[argv], NULL, 10);
 
     ull cnt = 0;
-    for (ull i = rank; i < n; i += size)
+    ull i;
+    for (i = rank; i < n; i += size)
     {
         long double x = 1.l * rand() / RAND_MAX, y = 1.l * rand() / RAND_MAX;
         if (x * x + y * y < 1)
