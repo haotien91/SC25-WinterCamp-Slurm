@@ -1,7 +1,7 @@
 ## Hands-on Lab
 
 1. Scalability Test.
-   * 固定TRIES=100000，用不同行程數測量多次並用Google試算表繪製出Scalability圖。
+   * Set TRIES to 100,000 and measure the performance with different numbers of processes multiple times. Then, use Google Sheets to create a Scalability chart.
    ```bash
    #!/bin/bash
    #PBS -N pi-mt-Intel-OMPI
@@ -29,7 +29,7 @@
 
 
 2. Error Test.
-   * 固定行程數=1000，調整不同的TRIES數，作誤差對TRIES數的圖。
+   * Keep the number of processes constant at 1000, and vary the number of TRIES. Then, create a graph to show how the error changes with different TRIES values.
    ```bash
    #!/bin/bash
    #PBS -N pi-mt-Intel-OMPI
