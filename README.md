@@ -11,7 +11,7 @@
    #PBS -e err.log
    #PBS -l mpiprocs=$(TRY_IT_YOURSELF!)
 
-   # Please fix TRIES to 100000 and try different $NUM_OF_PROCS.
+   # Please set TRIES to 100,000 and experiment with different numbers of processes (NUM_OF_PROCS).
    NUM_OF_PROCS=$(TRY_IT_YOURSELF!)
    TRIES=100000
 
@@ -30,7 +30,7 @@
 
 2. Error Test.
    * Keep the number of processes constant at 1000, and vary the number of TRIES. Then, create a graph to show how the error changes with different TRIES values.
-   ```bash
+   ```shellscript
    #!/bin/bash
    #PBS -N pi-mt-Intel-OMPI
    #PBS -P ACD110018
@@ -39,9 +39,9 @@
    #PBS -e err.log
    #PBS -l mpiprocs=1000
 
-   # Please fix NUM_OF_PROCS to 1000 and try different TRIES.
+   # Please set NUM_OF_PROCS to 1000 and experiment with various values for TRIES
    NUM_OF_PROCS=1000
-   TRIES=100000
+   TRIES=$(TRY_IT_YOURSELF!)
 
    module purge
    module load gcc/9.3.0
