@@ -30,7 +30,7 @@
 
 2. Error Test.
    * Keep the number of processes constant at 1000, and vary the number of TRIES. Then, create a graph to show how the error changes with different TRIES values.
-   ```shellscript
+   ```bash
    #!/bin/bash
    #PBS -N pi-mt-Intel-OMPI
    #PBS -P ACD110018
@@ -39,7 +39,7 @@
    #PBS -e err.log
    #PBS -l mpiprocs=1000
 
-   # Please set NUM_OF_PROCS to 1000 and experiment with various values for TRIES
+   # Please set NUM_OF_PROCS to 1000 and experiment with various values for TRIES.
    NUM_OF_PROCS=1000
    TRIES=$(TRY_IT_YOURSELF!)
 
