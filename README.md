@@ -1,5 +1,3 @@
-# SC24 Training Camp - Pi simulator
-
 ## Hands-on Lab
 
 1. Scalability Test.
